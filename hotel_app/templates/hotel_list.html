@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
+
+    {% include "navbar.html" %}
+
+    <section id="hotels" class="content-section">
+        <div style="margin-top: -121px;">
+            <p style="text-align: center; font-size: 22px; font-family: Cinzel, serif; margin-bottom: -5px;">
+                Stay with us
+            </p>
+            <h1 class="display-5" style="text-align: center; margin-bottom: -30px; font-family: Lora, serif; font-weight: bold;">
+                Our hotels
+            </h1>
+        </div>
+
+        <!-- Card Grid for hotels -->
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                {% for hotel in hotels %}
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="{{ hotel.image.url }}" class="card-img-top" alt="{{ hotel.name }}" style="height: 250px; object-fit: cover;">
+                            <div class="card-body" style="color: black;">
+                                <h5 class="card-title">{{ hotel.name }}</h5>
+                                <!-- Add additional information as needed -->
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+{% endblock %}
