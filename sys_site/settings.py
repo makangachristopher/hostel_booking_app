@@ -164,8 +164,15 @@ EMAIL_PORT = 1025
 #GP_CLIENT_ID = ''
 #GP_CLIENT_SECRET = ''
 
+SESSION_COOKIE_SECURE = True  # Cookies sent only over HTTPS
+SESSION_COOKIE_HTTPONLY = True  # Prevent JavaScript access to cookies
+SECURE_HSTS_SECONDS = 3600  # Enforce HTTPS for 1 hour
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # End session on browser close
+
+CSRF_COOKIE_SECURE = True  # Cookies sent only over HTTPS
+CSRF_COOKIE_HTTPONLY = True  # Prevent JavaScript from accessing the token
 
 
-
-
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'  # Prevents clickjacking
 
